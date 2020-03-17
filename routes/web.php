@@ -21,3 +21,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', 'StaticPageController@index')->name('StaticPage');
 Route::get('/chiSiamo', 'StaticPageController@chisiamo')->name('StaticPage.privacy');
 Route::get('/privacy', 'StaticPageController@privacy')->name('StaticPage.chiSiamo');
+
+
+// pagine studenti
+Route::get('/', 'DynamicPageController@students');
+// // // // // // Route::get('/', 'DynamicPageController@show');

@@ -4,7 +4,7 @@
         </header>
            
         <main>
-            @yield('content')
+            @yield('main')
         </main>
 
         <footer>

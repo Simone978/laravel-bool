@@ -9,6 +9,13 @@ class StaticPageController extends Controller
     public function index()
     {
         return view('home');
-        dd('ciao');
+    }
+    public function chisiamo()
+    {
+        return view('home.chisiamo');
+    }
+    public function contatti()
+    {
+        return view('home.contatti');
     }
 }
