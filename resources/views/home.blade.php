@@ -1,3 +1,3 @@
 @extends('layouts.homeLayout')
 
-@dd($studenti)
+@dd($students)

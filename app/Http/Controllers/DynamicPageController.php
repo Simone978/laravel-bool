@@ -6,9 +6,20 @@ use Illuminate\Http\Request;
 
 class DynamicPageController extends Controller
 {
+    private $students;
+
+     public function __construct(){
+         $this -> AllStudents();
+     }
     public function students()
     {
-        $studenti = [
+        
+        $students = $this->students;
+        return view('home', compact('students'));
+    }
+
+    private function AllStudents(){
+        $this ->students = [
             [
                 'poster' => 'https://www.boolean.careers/images/students/biagini.png',
                 'nome' => 'Alessandro Biagini',
@@ -34,7 +45,5 @@ class DynamicPageController extends Controller
                 'descrizione' => 'Ha scoperto la passione per l\'informatica creando un blog di psicologia, ambito in cui si era specializzata durante gli studi. Il suo cuore però non vuol sentir ragione e Loana cambia carriera e diventa una ricercatissima sviluppatrice web.'
             ]
         ];
-
-        return view('home', compact('studenti'));
     }
 }
