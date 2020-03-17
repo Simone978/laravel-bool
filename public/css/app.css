@@ -14,6 +14,11 @@ a {
   text-decoration: none;
 }
 
+.active {
+  text-decoration: underline;
+  color: green;
+}
+
 .top {
   width: 100%;
   position: fixed;
@@ -25,13 +30,36 @@ a {
   z-index: 1;
 }
 
-.top li {
-  list-style: none;
+.top:after {
+  content: "";
+  display: table;
+  clear: both;
 }
 
-.top .logo img {
-  height: 60px;
+.top .logo {
   vertical-align: middle;
+  margin: 20px;
+}
+
+.top img.logo {
+  height: 60px;
+}
+
+.top .menu_left {
+  width: 20%;
+  float: left;
+}
+
+.top .menu_right {
+  width: 80%;
+  float: right;
+  text-align: right;
+}
+
+.top li {
+  list-style: none;
+  display: inline;
+  padding: 0 40px;
 }
 
 .card_wrap {

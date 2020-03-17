@@ -20,6 +20,10 @@ a {
     text-decoration: none;
 }
 
+.active {
+    text-decoration: underline;
+    color: green;
+}
 //header
 .top {
     width: 100%;
@@ -30,13 +34,34 @@ a {
     background-color: #ffffff;
     line-height: 90px;
     z-index: 1;
+    &:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+    .logo {
+        vertical-align: middle;
+        margin: 20px;
+    }
+    img.logo{
+        height: 60px;
+        
+    }
+    .menu_left {
+        width: 20%;
+        float: left;
+    }
+    .menu_right {
+        width: 80%;
+        float: right;
+        text-align: right;
+    }
     li {
         list-style: none;
+        display: inline;
+        padding: 0 40px;
     }
-    .logo img{
-        height: 60px;
-        vertical-align: middle;
-    }
+
 }
 
 

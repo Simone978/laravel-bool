@@ -11,8 +11,15 @@
     <div class="container">
         <div class="top">
             <nav>
-                <ul>
-                    <li class= "logo"><img src="https://www.boolean.careers/images/common/logo.png" alt=""></li>
+                <div class="menu_left">
+                    <img class= "logo" src="https://www.boolean.careers/images/common/logo.png" alt="">
+                </div>
+                
+                <ul class = "menu_right">
+                <li><a href="{{route('StaticPage.home')}}">HOME</a></li>
+                    <li><a href="#">CORSO</a></li>
+                    <li><a class =" {{(Request::route()->getName() == 'home' ) ? 'active' : ''}}" href="{{route('home')}}">DOPO IL CORSO</a></li>
+                    <li><a href="#">LEZIONE GRATUITA</a></li>
                 </ul>
             </nav>
             
