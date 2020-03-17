@@ -7,6 +7,7 @@
 
 .container {
   background-color: #E8EBF1;
+  margin-top: 90px;
 }
 
 a {
@@ -14,9 +15,14 @@ a {
 }
 
 .top {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
   height: 90px;
   background-color: #ffffff;
   line-height: 90px;
+  z-index: 1;
 }
 
 .top li {
@@ -37,6 +43,7 @@ a {
 }
 
 .card_wrap .card {
+  min-width: 283px;
   width: 45%;
   align-content: center;
   padding: 10px;

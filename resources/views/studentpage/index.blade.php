@@ -13,7 +13,6 @@
             </div>
             
          </div>
-        
         <p>{{$student['descrizione']}}</p>
       </div>    
    @endforeach
