@@ -13,6 +13,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+
+// pagine statiche
+Route::get('/', 'StaticPageController@index')->name('StaticPage');
+Route::get('/chiSiamo', 'StaticPageController@chisiamo')->name('StaticPage.privacy');
+Route::get('/privacy', 'StaticPageController@privacy')->name('StaticPage.chiSiamo');
