@@ -9,3 +9,11 @@
 </head>
 <body>
     <div class="container">
+        <div class="top">
+            <nav>
+                <ul>
+                    <li class= "logo"><img src="https://www.boolean.careers/images/common/logo.png" alt=""></li>
+                </ul>
+            </nav>
+            
+        </div>
