@@ -25,4 +25,4 @@ Route::get('/privacy', 'StaticPageController@privacy')->name('StaticPage.privacy
 
 // pagine studenti
 Route::get('/studentpage', 'DynamicPageController@index')->name('home');
-Route::get('/studentpage/show', 'DynamicPageController@show')->name('studentpage.show');
+Route::get('/studentpage/show/{id}', 'DynamicPageController@show')->name('studentpage.show');

@@ -1,1 +1,0 @@
-<a href="{{route('studentpage.show')}}">vai</a>

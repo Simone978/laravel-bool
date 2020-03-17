@@ -18,6 +18,15 @@ class DynamicPageController extends Controller
         return view('studentpage.index', compact('students'));
     }
 
+    public function show($id)
+    {
+        if(!array_key_exists( $id , $this->students )){
+           abort('404');
+        }
+        $student = $this->students[$id];
+        return view('studentpage.show', compact('student'));
+    }
+
     private function AllStudents(){
         $this ->students = [
             [
@@ -50,8 +59,5 @@ class DynamicPageController extends Controller
         ];
     }
 
-    public function show()
-    {
-        return view('studentpage.show', compact('students'));
-    }
+   
 }
