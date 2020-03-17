@@ -18,11 +18,11 @@ use Illuminate\Support\Facades\Route;
 // });
 
 // pagine statiche
-Route::get('/', 'StaticPageController@index')->name('StaticPage');
-Route::get('/chiSiamo', 'StaticPageController@chisiamo')->name('StaticPage.privacy');
-Route::get('/privacy', 'StaticPageController@privacy')->name('StaticPage.chiSiamo');
+Route::get('/', 'StaticPageController@index')->name('StaticPage.home');
+Route::get('/chiSiamo', 'StaticPageController@chisiamo')->name('StaticPage.chisiamo');
+Route::get('/privacy', 'StaticPageController@privacy')->name('StaticPage.privacy');
 
 
 // pagine studenti
-Route::get('/', 'DynamicPageController@students');
-// // // // // // Route::get('/', 'DynamicPageController@show');
+Route::get('/studentpage', 'DynamicPageController@index')->name('home');
+Route::get('/studentpage/show', 'DynamicPageController@show')->name('studentpage.show');

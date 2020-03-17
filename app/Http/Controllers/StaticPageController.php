@@ -8,14 +8,14 @@ class StaticPageController extends Controller
 {
     public function index()
     {
-        return view('home');
+        return view('staticpage.home');
     }
     public function chisiamo()
     {
-        return view('home.chisiamo');
+        return view('staticpage.home.chisiamo');
     }
     public function contatti()
     {
-        return view('home.contatti');
+        return view('staticpage.home.contatti');
     }
 }

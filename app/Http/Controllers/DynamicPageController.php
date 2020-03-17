@@ -11,11 +11,11 @@ class DynamicPageController extends Controller
      public function __construct(){
          $this -> AllStudents();
      }
-    public function students()
+    public function index()
     {
         
         $students = $this->students;
-        return view('home', compact('students'));
+        return view('studentpage.index', compact('students'));
     }
 
     private function AllStudents(){
@@ -48,5 +48,10 @@ class DynamicPageController extends Controller
                 'genere' => 'f'
             ]
         ];
+    }
+
+    public function show()
+    {
+        return view('studentpage.show', compact('students'));
     }
 }
