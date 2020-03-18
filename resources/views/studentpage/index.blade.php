@@ -1,7 +1,7 @@
 @extends('layouts.homeLayout')
 
 @section('main')
-
+@dd($gender)
    <div class="card_wrap">
       @foreach ($students as $key => $student)
       <div class="card">

@@ -76,7 +76,13 @@ class DynamicPageController extends Controller
                 'descrizione' => 'Un passato da giocatore professionista di poker e una laurea in ingegneria gestionale alle spalle. Tommaso ha tramutato la sua passione per i numeri in un lavoro diventando data scientist a Dublino.',
                 'genere' => 'm'
             ]
+            ],
+            'gender'=> [
+                'm',
+                'f'
+
             ]
+    
         ];
         return view('studentpage.index', $data);
     }
