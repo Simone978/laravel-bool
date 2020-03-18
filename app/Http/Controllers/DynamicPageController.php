@@ -6,29 +6,31 @@ use Illuminate\Http\Request;
 
 class DynamicPageController extends Controller
 {
-    private $students;
+    //private $students;
 
-     public function __construct(){
-         $this -> AllStudents();
-     }
-    public function index()
-    {
+      public function __construct(){
+        // $this -> AllStudents();
+      }
+    //  public function index()
+    //  {
         
-        $students = $this->students;
-        return view('studentpage.index', compact('students'));
-    }
+    //     //  $students = $this->data['students'];
+    //     //  dd($students);
+    //      return view('studentpage.index', $data);
+    //  }
 
-    public function show($id)
-    {
-        if(!array_key_exists( $id , $this->students )){
-           abort('404');
-        }
-        $student = $this->students[$id];
-        return view('studentpage.show', compact('student'));
-    }
+     public function show($id)
+     {
+         if(!array_key_exists( $id , $data )){
+            abort('404');
+         }
+         $student = $this->students[$id];
+         return view('studentpage.show', $data);
+     }
 
-    private function AllStudents(){
-        $this ->students = [
+    public function index(){
+        $data = [
+            'students' =>[
             [
                 'poster' => 'https://www.boolean.careers/images/students/biagini.png',
                 'nome' => 'Alessandro Biagini',
@@ -74,7 +76,9 @@ class DynamicPageController extends Controller
                 'descrizione' => 'Un passato da giocatore professionista di poker e una laurea in ingegneria gestionale alle spalle. Tommaso ha tramutato la sua passione per i numeri in un lavoro diventando data scientist a Dublino.',
                 'genere' => 'm'
             ]
+            ]
         ];
+        return view('studentpage.index', $data);
     }
 
    

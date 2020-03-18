@@ -16,7 +16,7 @@
                 </div>
                 
                 <ul class = "menu_right">
-                <li><a href="{{route('StaticPage.home')}}">HOME</a></li>
+                    <li><a class =" {{(Request::route()->getName() == 'StaticPage.home' ) ? 'active' : ''}}"href="{{route('StaticPage.home')}}">HOME</a></li>
                     <li><a href="#">CORSO</a></li>
                     <li><a class =" {{(Request::route()->getName() == 'home' ) ? 'active' : ''}}" href="{{route('home')}}">DOPO IL CORSO</a></li>
                     <li><a href="#">LEZIONE GRATUITA</a></li>

@@ -9,5 +9,6 @@
 
         <footer>
             @yield('content')
+            @yield('scripts')
         </footer>
 @include('layouts.partials._footer') 
