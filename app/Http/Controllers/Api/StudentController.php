@@ -1,7 +1,13 @@
 <?php
 
-return [
-    'students' => [
+namespace App\Http\Controllers\Api;
+
+use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
+
+class StudentController extends Controller
+{
+    private $students = [
         [
             'poster' => 'https://www.boolean.careers/images/students/biagini.png',
             'nome' => 'alessandro Biagini',
@@ -57,6 +63,12 @@ return [
             'slug' => 'tommaso',
             'etal' => '16'
         ]
-    ],
-    'genders' => ['m','f']
-];
+    ];
+
+    public function getAll(){
+        $students = $this_students;
+       
+        
+        return(response()->json($students));
+    }
+}
