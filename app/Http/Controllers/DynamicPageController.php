@@ -9,11 +9,11 @@ class DynamicPageController extends Controller
     private $students;
     private $genders;
 
-      public function __construct(){
-        $this->students = config('students.students');
-        $this->genders = config('students.genders');
-       
-
+    public function __construct(){
+    $this->students = config('students.students');
+    $this->genders = config('students.genders');
+    }
+    
     public function index(){
         $data = [
             'students'=> $this->students,
@@ -42,19 +42,19 @@ class DynamicPageController extends Controller
 
     public function getId($id){
          foreach ($this->students as $key => $student) {
-        if ($key == $id) {
-         return view('studentpage.show', ['student' => $this->students[$id]]);
+            if ($key == $id) {
+            return view('studentpage.show', ['student' => $this->students[$id]]);
+            }
         }
-     }
      return abort('404');
     }
 
     public function getAltroId($id){
         foreach ($this->students as $key => $student) {
-       if ($key == $id) {
-        return view('studentpage.show', ['student' => $this->students[$id]]);
-       }
-    }
+            if ($key == $id) {
+            return view('studentpage.show', ['student' => $this->students[$id]]);
+            }
+        }
     return abort('404');
    }
 
@@ -63,10 +63,10 @@ class DynamicPageController extends Controller
         $allGenere = [];
         foreach ($this->students as $student) {
             
-        if($student['genere'] == $genere){
-            //dd($student['genere']);
-            $allGenere[] = $student;
-            //dd($allGenere);
+            if($student['genere'] == $genere){
+                //dd($student['genere']);
+                $allGenere[] = $student;
+                //dd($allGenere);
             }
         }
         return view('showstudent', ['students' => $allGenere]);
@@ -102,7 +102,6 @@ class DynamicPageController extends Controller
 
     public function getAllStudents(){
         $students=$this->students;
-        
         return view('showstudent', ['students' => $students]);
     }
 
