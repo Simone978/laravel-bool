@@ -32,3 +32,4 @@ Route::get('/showstudent/genere/{genere}', 'DynamicPageController@getGenere')->n
 Route::get('/studentpage/show/eta/{eta}', 'DynamicPageController@getEta')->name('studentpage.showEtal');
 Route::get('/showstudent/mostra', 'DynamicPageController@getAllStudents')->name('showstudent.getAllStudents');
 Route::get('/showstudent/mostra/db', 'DynamicPageController@getAllDbStudents')->name('showstudent.getAllDbStudents');
+

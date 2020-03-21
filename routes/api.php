@@ -18,5 +18,8 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 Route::namespace('Api')->group(function () {
-    Route::post('studentpage/show','StudentController@getAll');
+    Route::post('studentsapi','StudentController@getAll');
+    Route::post('studentsapi/age/{age}','StudentController@getAge');
+    Route::post('studentsapi/gender/{gender}','StudentController@getgender');
+    Route::post('studentsapi/filter','StudentController@filter');
 });

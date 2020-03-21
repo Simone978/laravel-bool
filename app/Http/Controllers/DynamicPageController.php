@@ -12,27 +12,7 @@ class DynamicPageController extends Controller
       public function __construct(){
         $this->students = config('students.students');
         $this->genders = config('students.genders');
-        //dd($this->genders);
        
-           
-    
-      }
-    //  public function index()
-    //  {
-        
-    //     //  $students = $this->data['students'];
-    //     //  dd($students);
-    //      return view('studentpage.index', $data);
-    //  }
-
-    //  public function show($id)
-    //  {
-    //      if(!array_key_exists( $id , $this->students )){
-    //         abort('404');
-    //      }
-    //      $student = $this->students[$id];
-    //      return view('studentpage.show', $students[$id]);
-    //  }
 
     public function index(){
         $data = [
@@ -78,28 +58,27 @@ class DynamicPageController extends Controller
     return abort('404');
    }
 
-      public function getGenere($genere)
-      {
-          $allGenere = [];
-           foreach ($this->students as $student) {
-               
-           if($student['genere'] == $genere){
-               //dd($student['genere']);
-               $allGenere[] = $student;
-               //dd($allGenere);
-              return view('showstudent', ['students' => $allGenere]);
-               }
-           }
-           return abort('404');
-      }
+    public function getGenere($genere)
+    {
+        $allGenere = [];
+        foreach ($this->students as $student) {
+            
+        if($student['genere'] == $genere){
+            //dd($student['genere']);
+            $allGenere[] = $student;
+            //dd($allGenere);
+            }
+        }
+        return view('showstudent', ['students' => $allGenere]);
+    }
 
-      public function getAllDbStudents()
-      {
+    public function getAllDbStudents()
+    {
         $this->students = Student::all();
         dd($this->students);
 
-        return view('showstudent', ['students' => $this->students]);
-      }
+        return view('showstudent', $this->students);
+        }
 
 
 
