@@ -7,10 +7,10 @@ use Illuminate\Http\Request;
 
 class StudentController extends Controller
 {
-    // private $students;
-    // public function __construct()
-    // {
-        private $students = [
+     private $students;
+     public function __construct()
+     {
+        $this->students = [
             [
                 'poster' => 'https://www.boolean.careers/images/students/biagini.png',
                 'nome' => 'alessandro Biagini',
@@ -67,7 +67,7 @@ class StudentController extends Controller
                 'etal' => '16'
             ]
         ];
-    //} 
+    } 
 
     public function getAll(){
         $students = $this->students;
@@ -96,15 +96,53 @@ class StudentController extends Controller
         return response()->json($studentsGender);
     }
 
-     public function filter(Request $request){
-         $students = $this->students;
+    //  public function filter(Request $request){
+    //      $students = $this->students;
 
-         $data = $request->all();
-         dd($data);
+    //      $data = $request->all();
+    //      dd($data);
          
-         return response()->json($studentsGender);
-     }
+    //      return response()->json($studentsGender);
+    //  }
 
-    
+
+    public function filter(Request $request)
+    {
+        $students = $this->students;
+        $type = [
+            'eta',
+            'nome',
+            'genere',
+        ];
+
+        $data = $request->All();
+        
+        foreach ($data as $key => $dato) {
+            if(!in_array($key,$type)){
+                unset($data[$key]);
+            }
+        }
+        
+        foreach ($data as $key => $value) {
+            if(array_key_first($data)==$key){
+                $studentsFiltered = $this->filterFor($key,$value,$students);
+            }else{
+                $studentsFiltered = $this->filterFor($key,$value,$studentsFiltered);
+            }
+            
+        }
+        return response()->json($studentsFiltered);
+    }
+
+    private function filterFor($type, $value, $array)
+    {
+        $filtered = [];
+        foreach ($array as $element) {
+            if($element[$type] == $value){
+                $filtered[] = $element;
+            }
+        }
+        return $filtered;
+    }
 }
 

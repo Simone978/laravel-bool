@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Student;
+use App\Teacher;
 use Illuminate\Http\Request;
 
 class DynamicPageController extends Controller
@@ -9,12 +10,14 @@ class DynamicPageController extends Controller
     private $students;
     private $genders;
 
-    public function __construct(){
+    public function __construct()
+    {
     $this->students = config('students.students');
     $this->genders = config('students.genders');
     }
     
-    public function index(){
+    public function index()
+    {
         $data = [
             'students'=> $this->students,
             'gender'=> $this->genders 
@@ -22,22 +25,35 @@ class DynamicPageController extends Controller
         return view('studentpage.index', $data);
     }
 
-    public function show($slug= null)
+    // public function show($slug = null)
+    // {
+    //     $search = false;
+    //     $thisStudente = [];
+    //     foreach ($this->students as $studente) {
+    //         if ($slug == $studente['slug']){
+    //             $thisStudente[] = $studente;
+    //             $search = true;
+    //             //dd($thisStudente);
+    //         }
+    //     }
+    //     if($search){
+    //         //dd($thisStudente);
+    //         return view('studentpage.show', ['student' => $thisStudente]);  
+    //     } else {
+    //         return abort('404');
+    //     }  
+    // }
+
+
+    public function show($slug)
     {
-        $search = false;
-        $thisStudente = [];
-        foreach ($this->students as $key => $studente) {
-            if ($slug == $studente['slug']){
-                $thisStudente[] = $studente;
-                $search = true;
+        $thisStudent = [];
+        foreach ($this->students as $student) {
+            if($student['slug'] == $slug){
+                $thisStudent[] = $student;
             }
-        }
-        if($search){
-            return view('studentpage.show', ['student' => $thisStudente]);
-        } else {
-            abort('404');
-        }
-       
+        }  
+        return view('studentpage.show', ['student' => $thisStudent]);
     }
 
     public function getId($id){
@@ -79,6 +95,15 @@ class DynamicPageController extends Controller
 
         return view('showstudent', $this->students);
         }
+
+    public function getAllDbTeachers()
+    {
+        $this->teachers = Teacher::all();
+        dd($this->teachers);
+
+        return view('showstudent', $this->teachers);
+        
+    }
 
 
 
